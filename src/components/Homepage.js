@@ -12,11 +12,11 @@ function Homepage() {
 
   return (
     <div className='home-wrapper'>
-      <img
+      {/* <img
         className='home-image'
-        src="Assets/Pizza.jpg"
-        alt=''
-      />
+        // src=""
+        // alt=''
+      /> */}
       <button
         onClick={routeToOrder}
         className='md-button'

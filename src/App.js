@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 import * as yup from 'yup';
 import schema from './validation/FormSchema';
@@ -32,7 +32,9 @@ const initialPizzaOrders = [] // will eventually hold our future orders
 const initialDisabled = true // for the button
 
 const App = () => {
+
   /** GETTERS **/
+
   const [pizzaOrders, setPizzaOrders] = useState(initialPizzaOrders);
   const [formValues, setFormValues] = useState(initialFormValues) // object
   const [formErrors, setFormErrors] = useState(initialFormErrors) // object
@@ -41,11 +43,9 @@ const App = () => {
   /** HELPERS **/
 
   const getPizzaOrders = () => {
-    // 🔥 STEP 5- IMPLEMENT! ON SUCCESS PUT FRIENDS IN STATE
-    //    helper to [GET] all friends from `http://buddies.com/api/friends` <--- using this API endpoint were going to grab our friends
+
     axios.get('https://reqres.in/api/orders')
       .then(res => {
-        console.log(res.data);
         setPizzaOrders([res.data], ...pizzaOrders); // we want to add our friends to state
       })
       .catch(err => {
@@ -56,8 +56,7 @@ const App = () => {
   const postNewPizzaOrder = newPizzaOrder => {
     axios.post('https://reqres.in/api/orders', newPizzaOrder ) // post takes two arguments (apiLink, newFriend)
         .then(res => {
-          console.log(res.data);
-          setPizzaOrders([res.data, ...pizzaOrders]); // can you explain why they passed in two arguments here.
+          setPizzaOrders([res.data], ...pizzaOrders); // can you explain why they passed in two arguments here.
         })
         .catch(err => {
           console.error(err);
@@ -101,10 +100,6 @@ const App = () => {
   }
 
   useEffect(() => {
-    getPizzaOrders()
-  }, [])
-
-  useEffect(() => {
     schema.isValid(formValues)
     .then(valid => setDisabled(!valid))
   }, [formValues])
@@ -124,7 +119,6 @@ const App = () => {
           <Link to="/pizza">Order</Link>
         </div>
       </nav>
-      <Switch>
         <Route path="/pizza">
           <PizzaForm 
           values={formValues}
@@ -140,10 +134,10 @@ const App = () => {
             })
           } 
         </Route>
-        <Route path="/"> 
+        <Route exact path="/"> 
           <Homepage />
         </Route>
-      </Switch>
+        
     </div>
   );
 };
