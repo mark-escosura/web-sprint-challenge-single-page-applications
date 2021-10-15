@@ -8,9 +8,10 @@ function PizzaOrder({ details }) {
   return (
     
     <div className='pizza container'>
-        
-      <h2>{details.name}</h2>
-      
+
+      {!!details.name && !!details.name.length &&
+      <h2>{details.name}</h2>}
+
       {!!details.instruction && !!details.instruction.length &&
       <p>Instruction: {details.instruction}</p>}
 

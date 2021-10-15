@@ -15,12 +15,13 @@ const initialFormValues = {
   ///// DROPDOWN /////
   size: '',
   ///// CHECKBOXES /////
-  pepperoni: false,
-  onions: false,
-  olives: false,
-  ham: false,
-  pineapple: false,
-  sausage: false
+  toppings: [{pepperoni: false,
+              onions: false,
+              olives: false,
+              ham: false,
+              pineapple: false,
+              sausage: false
+  }]
 }
 
 const initialFormErrors = {
@@ -46,7 +47,7 @@ const App = () => {
 
     axios.get('https://reqres.in/api/orders')
       .then(res => {
-        setPizzaOrders([res.data], ...pizzaOrders); // we want to add our friends to state
+        setPizzaOrders([res.data, ...pizzaOrders]); // we want to add our friends to state
       })
       .catch(err => {
         console.error(err);
@@ -56,7 +57,7 @@ const App = () => {
   const postNewPizzaOrder = newPizzaOrder => {
     axios.post('https://reqres.in/api/orders', newPizzaOrder ) // post takes two arguments (apiLink, newFriend)
         .then(res => {
-          setPizzaOrders([res.data], ...pizzaOrders); // can you explain why they passed in two arguments here.
+          setPizzaOrders([res.data, ...pizzaOrders]); // can you explain why they passed in two arguments here.
         })
         .catch(err => {
           console.error(err);
