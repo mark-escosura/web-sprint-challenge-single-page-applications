@@ -7,7 +7,7 @@ function Homepage() {
   const history = useHistory(); // grab
   
   const routeToOrder = () => {
-    history.push("/order-pizza"); // push
+    history.push("/pizza"); // push
   }
 
   return (
@@ -15,7 +15,7 @@ function Homepage() {
       <img
         className='home-image'
         src="Assets/Pizza.jpg"
-        alt='Pizza'
+        alt=''
       />
       <button
         onClick={routeToOrder}
