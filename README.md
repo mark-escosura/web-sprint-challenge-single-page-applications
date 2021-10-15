@@ -40,11 +40,17 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 2. How would you explain form validation to someone who has never programmed before?
 
-- 
+- Data validation is the process of ensuring that user input is clean, correct, and useful.
+
+Typical validation tasks are:
+
+ * has the user filled in all required fields?
+ * has the user entered a valid date?
+ * has the user entered text in a numeric field?
 
 3. In 1-2 sentences, define end to end testing.
 
-- End to End testing , AKA E2E testing 
+- End to end testing involves techniques that simulate an actual user of an application. By replicating the actions a user would take, the test helps evaluate whether the results comply with the requirements or expected outcome.  
 
 ## Instructions
 

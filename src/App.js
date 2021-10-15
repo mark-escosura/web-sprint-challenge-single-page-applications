@@ -15,13 +15,12 @@ const initialFormValues = {
   ///// DROPDOWN /////
   size: '',
   ///// CHECKBOXES /////
-  toppings: [{pepperoni: false,
-              onions: false,
-              olives: false,
-              ham: false,
-              pineapple: false,
-              sausage: false
-  }]
+  pepperoni: false,
+  onions: false,
+  olives: false,
+  ham: false,
+  pineapple: false,
+  sausage: false
 }
 
 const initialFormErrors = {
