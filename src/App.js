@@ -1,5 +1,5 @@
 import React from "react";
-import Home from './Home';
+import Homepage from './Homepage';
 import { Link, Route, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
       </nav>
       <Switch>
         <Route path="/"> 
-          <Home />
+          <Homepage />
         </Route>
       </Switch>
 

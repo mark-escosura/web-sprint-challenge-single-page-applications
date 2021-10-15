@@ -76,7 +76,7 @@ nav {
   object-fit: cover;
 }
 
-.order-button.md-button {
+#order-button.md-button {
   margin-top: -16px;
   width: 115px;
 }
